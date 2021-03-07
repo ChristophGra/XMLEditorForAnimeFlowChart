@@ -3,6 +3,7 @@
 open System
 open BasicData
 open PrintData
+open BasicData
 
 
 
@@ -15,20 +16,21 @@ let modifyDecision state =
 let updateState (state:state) input = 
   match input with 
   | "modifydecision" -> 
-    modifyDecision state
+    (true, modifyDecision state)
   | "end" -> 
-    state
+    (false,state)
   | _ -> 
-    state
+    (true,state)
 
 
 [<EntryPoint>]
 let main argv =
   let beginningQuestion:decisionText.T = decisionText.create "Do you want to watch anime"  
-  let baseNode = {text = beginningQuestion; result = []}
-  let mutable state = {cont = true; treebase = baseNode; animeHashList = []}
-  while state.cont do
-    state <- updateState state (Console.ReadLine())
+  let mutable cont = true
+  let baseNode = decisionTree.createDecisionFromEmpty beginningQuestion
+  let mutable state = {treebase = baseNode; animeHashList = []}
+  while cont do
+    (cont,state) <- updateState state (Console.ReadLine())
     
     
   0 // return an integer exit code
