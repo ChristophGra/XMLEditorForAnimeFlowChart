@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Helpers.fs" />
+    <Compile Include="DataDefinition.fs" />
+    <Compile Include="DataOperations.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
