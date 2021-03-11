@@ -6,9 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="BasicData.fs" />
-    <Compile Include="PrintData.fs" />
-    <Compile Include="UpdateData.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
